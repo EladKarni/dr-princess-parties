@@ -1,0 +1,65 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/ui/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/views/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  daisyui: {
+    themes: [
+      {
+        light: {
+          primary: "#1f2937",
+          "primary-content": "#ffffff",
+          secondary: "#3b82f6",
+          "secondary-content": "#ffffff",
+          accent: "#0693e3",
+          "accent-content": "#ffffff",
+          neutral: "#6b7280",
+          "neutral-content": "#ffffff",
+          "base-100": "#ffffff",
+          "base-200": "#f9fafb",
+          "base-300": "#f3f4f6",
+          "base-content": "#111827",
+          info: "#3b82f6",
+          "info-content": "#ffffff",
+          success: "#10b981",
+          "success-content": "#ffffff",
+          warning: "#f59e0b",
+          "warning-content": "#ffffff",
+          error: "#ef4444",
+          "error-content": "#ffffff",
+        },
+      },
+      {
+        dark: {
+          primary: "#0693e3",
+          "primary-content": "#ffffff",
+          secondary: "#3b82f6",
+          "secondary-content": "#ffffff",
+          accent: "#06b6d4",
+          "accent-content": "#000000",
+          neutral: "#2a2a2a",
+          "neutral-content": "#d1d5db",
+          "base-100": "#0a0a0a",
+          "base-200": "#1a1a1a",
+          "base-300": "#2a2a2a",
+          "base-content": "#ffffff",
+          info: "#3b82f6",
+          "info-content": "#ffffff",
+          success: "#10b981",
+          "success-content": "#ffffff",
+          warning: "#f59e0b",
+          "warning-content": "#000000",
+          error: "#ef4444",
+          "error-content": "#ffffff",
+        },
+      },
+    ],
+  },
+  plugins: [require("daisyui")],
+};
+export default config;

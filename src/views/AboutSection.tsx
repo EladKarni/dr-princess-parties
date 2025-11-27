@@ -33,7 +33,7 @@ const AboutSection: FC<AboutSectionProps> = ({
   imagePosition = "right",
 }) => {
   return (
-    <SectionContainer sectionName="about" background="white">
+    <SectionContainer sectionName="about" background="none">
       <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${imagePosition === "left" ? "lg:flex-row-reverse" : ""}`}>
         {/* Content */}
         <div className={`relative z-10 ${imagePosition === "left" ? "lg:order-2" : ""}`}>

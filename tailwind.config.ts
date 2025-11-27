@@ -14,6 +14,7 @@ const config: Config = {
         'princess-light': '#FFF0F5',    // Lavender Blush
         'princess-medium': '#FFB6C1',   // Light Pink
         'princess-gold': '#FFD700',     // Gold
+        'princess-gold-dark': '#B8860B', // Dark Goldenrod (better contrast)
         'princess-dark': '#2D2D2D',     // Dark text
         'princess-white': '#FFFFFF',    // Pure white
       },

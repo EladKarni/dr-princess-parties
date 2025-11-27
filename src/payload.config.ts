@@ -16,11 +16,12 @@ import { Testimonials } from "./collections/Testimonials";
 // Import globals
 import { HeroSection } from "./globals/HeroSection";
 import { ProjectsSection } from "./globals/ProjectsSection";
-import { TeamSection } from "./globals/TeamSection";
-import { NeighborhoodSection } from "./globals/NeighborhoodSection";
+// import { TeamSection } from "./globals/TeamSection";
+// import { NeighborhoodSection } from "./globals/NeighborhoodSection";
 import { ContactSection } from "./globals/ContactSection";
-import { TeamPage } from "./globals/TeamPage";
-import { NeighborhoodPage } from "./globals/NeighborhoodPage";
+// import { TeamPage } from "./globals/TeamPage";
+// import { NeighborhoodPage } from "./globals/NeighborhoodPage";
+import { LinktreeProfile } from "./globals/LinktreeProfile";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -37,11 +38,12 @@ export default buildConfig({
   globals: [
     HeroSection,
     ProjectsSection,
-    TeamSection,
-    NeighborhoodSection,
+    // TeamSection,
+    // NeighborhoodSection,
     ContactSection,
-    TeamPage,
-    NeighborhoodPage,
+    // TeamPage,
+    // NeighborhoodPage,
+    LinktreeProfile,
   ],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || "",

@@ -2,6 +2,8 @@ import { FC } from "react";
 import Image from "next/image";
 import SectionContainer from "@/ui/SectionContainer";
 import CTAButton from "@/ui/CTAButton";
+import SectionTitle from "@/ui/SectionTitle";
+import SectionSubtitle from "@/ui/SectionSubtitle";
 
 interface AboutSectionProps {
   title?: string;
@@ -34,14 +36,10 @@ const AboutSection: FC<AboutSectionProps> = ({
     <SectionContainer sectionName="about" background="none">
       <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${imagePosition === "left" ? "lg:flex-row-reverse" : ""}`}>
         {/* Content */}
-        <div className={imagePosition === "left" ? "lg:order-2" : ""}>
-          <p className="text-princess-gold font-script text-xl md:text-2xl mb-2">
-            {subtitle}
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-princess-dark mb-6">
-            {title}
-          </h2>
-          <div className="max-w-none text-princess-dark/80 leading-relaxed space-y-4">
+        <div className={`relative z-10 ${imagePosition === "left" ? "lg:order-2" : ""}`}>
+          <SectionSubtitle>{subtitle}</SectionSubtitle>
+          <SectionTitle className="mb-6">{title}</SectionTitle>
+          <div className="max-w-none text-princess-dark leading-relaxed space-y-4 text-base md:text-lg">
             <p>{description}</p>
           </div>
 
@@ -53,7 +51,7 @@ const AboutSection: FC<AboutSectionProps> = ({
                   <div className="text-3xl md:text-4xl font-bold text-princess-gold mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-princess-dark/70">{stat.label}</div>
+                  <div className="text-sm text-princess-dark/80">{stat.label}</div>
                 </div>
               ))}
             </div>

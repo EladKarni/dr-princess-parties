@@ -39,7 +39,7 @@ export default async function Home() {
       sort: 'order',
       limit: 100,
     });
-    servicesData = result.docs;
+    servicesData = result.docs as any;
   } catch (error) {
     console.error("Error fetching services:", error);
   }
@@ -57,7 +57,7 @@ export default async function Home() {
       sort: 'order',
       limit: 20,
     });
-    charactersData = result.docs;
+    charactersData = result.docs as any;
   } catch (error) {
     console.error("Error fetching characters:", error);
   }
@@ -75,7 +75,7 @@ export default async function Home() {
       sort: 'order',
       limit: 6,
     });
-    testimonialsData = result.docs;
+    testimonialsData = result.docs as any;
   } catch (error) {
     console.error("Error fetching testimonials:", error);
   }

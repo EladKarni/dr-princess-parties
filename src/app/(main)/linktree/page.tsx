@@ -35,7 +35,7 @@ export default async function LinktreePage() {
       <main className="min-h-screen bg-gradient-to-br from-princess-light via-princess-medium to-princess-light flex items-center justify-center">
         <div className="text-center px-4">
           <h1 className="font-script text-4xl md:text-5xl text-princess-dark mb-4">
-            Alexis Hester
+            Dr. Princess Parties
           </h1>
           <p className="text-princess-dark/70">
             Profile data is being loaded. Please check back soon.
@@ -99,7 +99,7 @@ export default async function LinktreePage() {
         {/* Footer */}
         <div className="text-center pt-8 opacity-70">
           <p className="text-sm text-princess-dark/60">
-            Dr. Princess Parties
+            Alexis Hester
           </p>
         </div>
       </LinktreeContainer>

@@ -1,7 +1,8 @@
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
-import NavLinks from "@/components/NavLinks";
-import { Parisienne, Inter } from "next/font/google";
+import type { Metadata } from "next";
+import { Inter, Parisienne } from "next/font/google";
+import "../globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
 
 const parisienne = Parisienne({
   weight: '400',
@@ -10,24 +11,45 @@ const parisienne = Parisienne({
   display: 'swap',
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: '--font-sans',
-  display: 'swap',
-});
+export const metadata: Metadata = {
+  title: {
+    default: "Dr. Princess Parties | Magical Character Experiences",
+    template: "%s | Dr. Princess Parties",
+  },
+  description: "Bringing magical princess character experiences to your special events. Professional performers, enchanting costumes, and unforgettable memories for children and families.",
+  keywords: ["princess parties", "character appearances", "birthday parties", "princess entertainment", "kids parties", "character visits", "party entertainment"],
+  authors: [{ name: "Dr. Princess Parties" }],
+  creator: "Dr. Princess Parties",
+  icons: {
+    icon: "/dr-princess-logos.svg",
+    shortcut: "/dr-princess-logos.svg",
+    apple: "/dr-princess-logos.svg",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://drprincessparties.com/",
+    title: "Dr. Princess Parties | Magical Character Experiences",
+    description: "Bringing magical princess character experiences to your special events. Professional performers and enchanting costumes.",
+    siteName: "Dr. Princess Parties",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dr. Princess Parties | Magical Character Experiences",
+    description: "Bringing magical princess character experiences to your special events. Professional performers and enchanting costumes.",
+  },
+};
 
-export default function MainLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <div data-theme="princess" className={`${parisienne.variable} ${inter.variable} font-sans antialiased`}>
-      <Navbar>
-        <NavLinks />
-      </Navbar>
-      {children}
-      <Footer />
-    </div>
+    <html lang="en" data-theme="light" className="scroll-smooth">
+      <body className={`${inter.className} ${parisienne.variable}`}>
+        {children}
+      </body>
+    </html>
   );
 }

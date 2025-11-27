@@ -37,6 +37,16 @@ export const LinktreeProfile: GlobalConfig = {
       },
     },
     {
+      name: "subtitle",
+      type: "text",
+      label: "Subtitle",
+      required: false,
+      maxLength: 50,
+      admin: {
+        description: "Optional subtitle (e.g., 'Princess Party Entertainer')",
+      },
+    },
+    {
       name: "bio",
       type: "textarea",
       label: "Bio",
@@ -103,6 +113,63 @@ export const LinktreeProfile: GlobalConfig = {
           ],
           admin: {
             description: "Icon to display on the button",
+          },
+        },
+        {
+          name: "variant",
+          type: "select",
+          label: "Button Style",
+          required: false,
+          defaultValue: "secondary",
+          options: [
+            { label: "Primary (Bold Gold Gradient)", value: "primary" },
+            { label: "Secondary (White with Border)", value: "secondary" },
+            { label: "Outline (Transparent with Border)", value: "outline" },
+            { label: "Soft (Pink Background)", value: "soft" },
+          ],
+          admin: {
+            description: "Visual style for this button",
+          },
+        },
+        {
+          name: "badge",
+          type: "text",
+          label: "Badge Text",
+          required: false,
+          maxLength: 20,
+          admin: {
+            description: "Optional badge (e.g., 'New!', 'Popular', 'Sale')",
+          },
+        },
+        {
+          name: "isFeatured",
+          type: "checkbox",
+          label: "Featured (Large Card)",
+          defaultValue: false,
+          admin: {
+            description: "Display as large card with image instead of pill button",
+          },
+        },
+        {
+          name: "thumbnail",
+          type: "upload",
+          label: "Thumbnail Image",
+          relationTo: "media",
+          required: false,
+          admin: {
+            description: "Optional image for featured cards (recommended: 400x400px)",
+            condition: (data: any, siblingData: any) => siblingData?.isFeatured === true,
+          },
+        },
+        {
+          name: "description",
+          type: "text",
+          label: "Description",
+          required: false,
+          maxLength: 100,
+          admin: {
+            description: "Short description for featured cards (max 100 characters)",
+            condition: (data: any, siblingData: any) => siblingData?.isFeatured === true,
           },
         },
         {

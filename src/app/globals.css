@@ -187,6 +187,22 @@
   }
 }
 
+/* Pulse Slow Animation for Avatar */
+@keyframes pulse-slow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.95;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
 .animate-bounce-slow {
   animation: bounce-slow 2s ease-in-out infinite;
 }

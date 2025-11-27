@@ -5,6 +5,7 @@ import SparklesBackground from "@/components/linktree/SparklesBackground";
 import LinktreeContainer from "@/components/linktree/LinktreeContainer";
 import ProfileHeader from "@/components/linktree/ProfileHeader";
 import LinktreeButton from "@/components/linktree/LinktreeButton";
+import FeaturedButton from "@/components/linktree/FeaturedButton";
 
 export const metadata: Metadata = {
   title: "Alexis Hester | Dr. Princess Parties",
@@ -44,7 +45,7 @@ export default async function LinktreePage() {
     );
   }
 
-  const { displayName, avatar, bio, links, theme } = profileData;
+  const { displayName, avatar, bio, subtitle, links, theme } = profileData;
 
   // Filter enabled links
   const activeLinks = links?.filter((link: any) => link.enabled) || [];
@@ -63,20 +64,36 @@ export default async function LinktreePage() {
           displayName={displayName}
           avatar={avatar}
           bio={bio}
+          subtitle={subtitle}
           showCrown={theme?.enableCrown}
         />
 
         {/* Links */}
-        <div className="space-y-4">
-          {activeLinks.map((link: any, index: number) => (
-            <LinktreeButton
-              key={link.id || index}
-              label={link.label}
-              url={link.url}
-              icon={link.icon}
-              index={index}
-            />
-          ))}
+        <div className="space-y-4 mt-8">
+          {activeLinks.map((link: any, index: number) =>
+            link.isFeatured ? (
+              <FeaturedButton
+                key={link.id || index}
+                label={link.label}
+                url={link.url}
+                description={link.description}
+                thumbnail={link.thumbnail}
+                icon={link.icon}
+                badge={link.badge}
+                index={index}
+              />
+            ) : (
+              <LinktreeButton
+                key={link.id || index}
+                label={link.label}
+                url={link.url}
+                icon={link.icon}
+                variant={link.variant || "secondary"}
+                badge={link.badge}
+                index={index}
+              />
+            )
+          )}
         </div>
 
         {/* Footer */}

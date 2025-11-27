@@ -35,15 +35,17 @@ const Hero: FC<HeroProps> = ({
   children,
   className,
 }) => {
+  // Default placeholder image if none provided
+  const defaultBackground = "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1920&h=1080&fit=crop&q=80";
+  const bgImage = backgroundImage || defaultBackground;
+
   return (
     <section className={clsx("relative min-h-[600px] md:min-h-[700px] lg:min-h-[800px] flex items-center justify-center overflow-hidden", className)}>
       {/* Background Image */}
-      {backgroundImage && (
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
-        />
-      )}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${bgImage})` }}
+      />
 
       {/* Background Video */}
       {backgroundVideo && (

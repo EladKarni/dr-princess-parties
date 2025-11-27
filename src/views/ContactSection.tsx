@@ -48,8 +48,10 @@ const ContactSection: FC<ContactSectionProps> = ({
     <SectionContainer sectionName="contact" background="none" sectionClasses="relative z-10">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <SectionSubtitle>{subtitle}</SectionSubtitle>
-          <SectionTitle className="mb-4">{title}</SectionTitle>
+          <div role="group" aria-labelledby="contact-title">
+            <SectionSubtitle id="contact-subtitle">{subtitle}</SectionSubtitle>
+            <SectionTitle id="contact-title" ariaDescribedby="contact-subtitle" className="mb-4">{title}</SectionTitle>
+          </div>
           <p className="text-lg text-princess-dark/70">{description}</p>
         </div>
 

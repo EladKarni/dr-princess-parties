@@ -55,7 +55,8 @@ export const HeroSection: GlobalConfig = {
       relationTo: "media",
       required: false,
       admin: {
-        description: "Background image for the hero section",
+        description:
+          "Background image for the hero section (1920x1080 recommended)",
       },
     },
     {

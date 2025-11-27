@@ -37,8 +37,10 @@ const AboutSection: FC<AboutSectionProps> = ({
       <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${imagePosition === "left" ? "lg:flex-row-reverse" : ""}`}>
         {/* Content */}
         <div className={`relative z-10 ${imagePosition === "left" ? "lg:order-2" : ""}`}>
-          <SectionSubtitle>{subtitle}</SectionSubtitle>
-          <SectionTitle className="mb-6">{title}</SectionTitle>
+          <div role="group" aria-labelledby="about-title">
+            <SectionSubtitle id="about-subtitle">{subtitle}</SectionSubtitle>
+            <SectionTitle id="about-title" ariaDescribedby="about-subtitle" className="mb-6">{title}</SectionTitle>
+          </div>
           <div className="max-w-none text-princess-dark leading-relaxed space-y-4 text-base md:text-lg">
             <p>{description}</p>
           </div>

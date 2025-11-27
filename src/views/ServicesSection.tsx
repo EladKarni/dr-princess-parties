@@ -125,8 +125,10 @@ const ServicesSection: FC<ServicesSectionProps> = ({
   return (
     <SectionContainer sectionName="services" background="none" sectionClasses="relative z-10">
       <div className="text-center mb-16">
-        <SectionSubtitle>{subtitle}</SectionSubtitle>
-        <SectionTitle>{title}</SectionTitle>
+        <div role="group" aria-labelledby="services-title">
+          <SectionSubtitle id="services-subtitle">{subtitle}</SectionSubtitle>
+          <SectionTitle id="services-title" ariaDescribedby="services-subtitle">{title}</SectionTitle>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

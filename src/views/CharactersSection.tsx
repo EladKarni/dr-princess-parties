@@ -99,8 +99,10 @@ const CharactersSection: FC<CharactersSectionProps> = ({
     return (
         <SectionContainer sectionName="characters" background="none" sectionClasses="relative z-10">
             <div className="text-center mb-16">
-                <SectionSubtitle>{subtitle}</SectionSubtitle>
-                <SectionTitle>{title}</SectionTitle>
+                <div role="group" aria-labelledby="characters-title">
+                    <SectionSubtitle id="characters-subtitle">{subtitle}</SectionSubtitle>
+                    <SectionTitle id="characters-title" ariaDescribedby="characters-subtitle">{title}</SectionTitle>
+                </div>
             </div>            {/* Carousel */}
             <div className="relative max-w-6xl mx-auto">
                 {/* Navigation Buttons */}

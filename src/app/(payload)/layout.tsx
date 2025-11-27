@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 import config from '@payload-config'
 import { RootLayout } from '@payloadcms/next/layouts'
-import { importMap } from './admin/[[...segments]]/importMap'
+import { importMap } from './admin/importMap.js'
 
 import '@payloadcms/next/css'
 import 'server-only'

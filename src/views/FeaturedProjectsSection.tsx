@@ -2,6 +2,8 @@ import { FC } from "react";
 import SectionContainer from "@/ui/SectionContainer";
 import ProjectCard from "@/components/ProjectCard";
 import CTAButton from "@/ui/CTAButton";
+import SectionTitle from "@/ui/SectionTitle";
+import SectionSubtitle from "@/ui/SectionSubtitle";
 
 interface Project {
   title: string;
@@ -57,12 +59,8 @@ const FeaturedProjectsSection: FC<FeaturedProjectsSectionProps> = ({
   return (
     <SectionContainer sectionName="projects" background="alt">
       <div className="text-center mb-16">
-        <p className="text-primary font-semibold text-sm md:text-base uppercase tracking-wider mb-2">
-          {subtitle}
-        </p>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-base-content">
-          {title}
-        </h2>
+        <SectionSubtitle>{subtitle}</SectionSubtitle>
+        <SectionTitle>{title}</SectionTitle>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">

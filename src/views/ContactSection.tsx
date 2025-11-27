@@ -3,6 +3,8 @@
 import { FC, useState } from "react";
 import SectionContainer from "@/ui/SectionContainer";
 import CTAButton from "@/ui/CTAButton";
+import SectionTitle from "@/ui/SectionTitle";
+import SectionSubtitle from "@/ui/SectionSubtitle";
 
 interface ContactSectionProps {
   title?: string;
@@ -46,12 +48,8 @@ const ContactSection: FC<ContactSectionProps> = ({
     <SectionContainer sectionName="contact" background="none" sectionClasses="relative z-10">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <p className="text-princess-gold font-script text-xl md:text-2xl mb-2">
-            {subtitle}
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-princess-dark mb-4">
-            {title}
-          </h2>
+          <SectionSubtitle>{subtitle}</SectionSubtitle>
+          <SectionTitle className="mb-4">{title}</SectionTitle>
           <p className="text-lg text-princess-dark/70">{description}</p>
         </div>
 

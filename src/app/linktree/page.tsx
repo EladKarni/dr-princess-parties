@@ -53,8 +53,8 @@ export default async function LinktreePage() {
   return (
     <main className="relative min-h-screen overflow-hidden">
       {/* Background */}
-      {theme?.enableSparkles && <SparklesBackground />}
-      {!theme?.enableSparkles && (
+      {(theme?.enableSparkles !== false) && <SparklesBackground />}
+      {(theme?.enableSparkles === false) && (
         <div className="fixed inset-0 bg-gradient-to-br from-princess-light via-princess-medium to-princess-light" />
       )}
 

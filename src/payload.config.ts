@@ -12,9 +12,11 @@ import { Media } from "./collections/Media";
 import { Projects } from "./collections/Projects";
 import { Services } from "./collections/Services";
 import { Testimonials } from "./collections/Testimonials";
+import { Characters } from "./collections/Characters";
 
 // Import globals
 import { HeroSection } from "./globals/HeroSection";
+import { AboutSection } from "./globals/AboutSection";
 import { ProjectsSection } from "./globals/ProjectsSection";
 // import { TeamSection } from "./globals/TeamSection";
 // import { NeighborhoodSection } from "./globals/NeighborhoodSection";
@@ -34,9 +36,10 @@ export default buildConfig({
     },
     disable: false,
   },
-  collections: [Users, Media, Projects, Services, Testimonials],
+  collections: [Users, Media, Projects, Services, Testimonials, Characters],
   globals: [
     HeroSection,
+    AboutSection,
     ProjectsSection,
     // TeamSection,
     // NeighborhoodSection,

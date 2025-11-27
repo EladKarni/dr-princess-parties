@@ -17,11 +17,11 @@ const SparklesBackground: FC = () => {
   useEffect(() => {
     // Generate sparkles only on client to avoid hydration mismatch
     setSparkles(
-      Array.from({ length: 30 }).map(() => ({
+      Array.from({ length: 50 }).map(() => ({
         left: `${Math.random() * 100}%`,
         top: `${Math.random() * 100}%`,
-        width: `${2 + Math.random() * 4}px`,
-        height: `${2 + Math.random() * 4}px`,
+        width: `${6 + Math.random() * 12}px`,
+        height: `${6 + Math.random() * 12}px`,
         animationDelay: `${Math.random() * 3}s`,
         animationDuration: `${2 + Math.random() * 2}s`,
       }))

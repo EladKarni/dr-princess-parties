@@ -6,25 +6,30 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "YK Innovations | Mechanical Engineering & Rapid Prototyping",
-    template: "%s | YK Innovations",
+    default: "Dr. Princess Parties | Magical Character Experiences",
+    template: "%s | Dr. Princess Parties",
   },
-  description: "Expert mechanical engineering and rapid prototyping services for businesses. We transform product concepts into functional prototypes with CAD design, 3D printing, CNC machining, and DFM analysis.",
-  keywords: ["mechanical engineering", "rapid prototyping", "CAD design", "3D printing", "CNC machining", "product development", "DFM analysis", "prototyping services"],
-  authors: [{ name: "YK Innovations" }],
-  creator: "YK Innovations",
+  description: "Bringing magical princess character experiences to your special events. Professional performers, enchanting costumes, and unforgettable memories for children and families.",
+  keywords: ["princess parties", "character appearances", "birthday parties", "princess entertainment", "kids parties", "character visits", "party entertainment"],
+  authors: [{ name: "Dr. Princess Parties" }],
+  creator: "Dr. Princess Parties",
+  icons: {
+    icon: "/dr-princess-logos.svg",
+    shortcut: "/dr-princess-logos.svg",
+    apple: "/dr-princess-logos.svg",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ykinnovations.com/",
-    title: "YK Innovations | Mechanical Engineering & Rapid Prototyping",
-    description: "Expert mechanical engineering and rapid prototyping services for businesses. We transform product concepts into functional prototypes.",
-    siteName: "YK Innovations",
+    url: "https://drprincessparties.com/",
+    title: "Dr. Princess Parties | Magical Character Experiences",
+    description: "Bringing magical princess character experiences to your special events. Professional performers and enchanting costumes.",
+    siteName: "Dr. Princess Parties",
   },
   twitter: {
     card: "summary_large_image",
-    title: "YK Innovations | Mechanical Engineering & Rapid Prototyping",
-    description: "Expert mechanical engineering and rapid prototyping services for businesses. We transform product concepts into functional prototypes.",
+    title: "Dr. Princess Parties | Magical Character Experiences",
+    description: "Bringing magical princess character experiences to your special events. Professional performers and enchanting costumes.",
   },
 };
 

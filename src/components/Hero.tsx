@@ -69,12 +69,12 @@ const Hero: FC<HeroProps> = ({
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-24 md:py-32 text-center">
         {subtitle && (
-          <p className="text-primary font-semibold text-sm md:text-base uppercase tracking-wider mb-4 animate-fade-in">
+          <p className="text-princess-gold font-script text-2xl md:text-3xl lg:text-4xl mb-4 animate-fade-in drop-shadow-lg">
             {subtitle}
           </p>
         )}
 
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up drop-shadow-2xl">
           {title}
         </h1>
 
@@ -87,12 +87,12 @@ const Hero: FC<HeroProps> = ({
         {(primaryCTA || secondaryCTA) && (
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up animation-delay-400">
             {primaryCTA && (
-              <CTAButton href={primaryCTA.href} size="lg" variant="primary">
+              <CTAButton href={primaryCTA.href} size="lg" variant="primary" className="bg-princess-gold hover:bg-princess-gold/90 text-princess-dark border-none shadow-lg hover:shadow-xl transition-all">
                 {primaryCTA.text}
               </CTAButton>
             )}
             {secondaryCTA && (
-              <CTAButton href={secondaryCTA.href} size="lg" variant="ghost" className="text-white border-white hover:bg-white hover:text-primary">
+              <CTAButton href={secondaryCTA.href} size="lg" variant="ghost" className="text-white border-2 border-white hover:bg-white hover:text-princess-dark shadow-lg">
                 {secondaryCTA.text}
               </CTAButton>
             )}

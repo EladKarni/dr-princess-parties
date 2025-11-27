@@ -27,6 +27,18 @@ const ProfileHeader: FC<ProfileHeaderProps> = ({
 
   return (
     <div className="flex flex-col items-center text-center space-y-4 animate-fade-in">
+      {/* Logo */}
+      <div className="mb-2 animate-fade-in">
+        <Image
+          src="/dr-princess-logos.svg"
+          alt="Dr. Princess Parties"
+          width={180}
+          height={60}
+          priority
+          className="drop-shadow-lg"
+        />
+      </div>
+
       {/* Avatar */}
       {avatarUrl && (
         <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-princess-gold/50 shadow-xl animate-pulse-slow">
@@ -43,19 +55,11 @@ const ProfileHeader: FC<ProfileHeaderProps> = ({
         </div>
       )}
 
-      {/* Name with Crown */}
+      {/* Name */}
       <div className="flex flex-col items-center gap-1">
-        <div className="flex items-center gap-2">
-          {showCrown && (
-            <CrownIcon className="w-6 h-6 md:w-7 md:h-7 text-princess-gold animate-bounce-slow drop-shadow-lg" />
-          )}
-          <h1 className="font-script text-4xl md:text-5xl lg:text-6xl text-princess-dark drop-shadow-[0_2px_4px_rgba(255,215,0,0.3)] hover:drop-shadow-[0_4px_8px_rgba(255,215,0,0.5)] transition-all">
-            {displayName}
-          </h1>
-          {showCrown && (
-            <CrownIcon className="w-6 h-6 md:w-7 md:h-7 text-princess-gold animate-bounce-slow animation-delay-200 drop-shadow-lg" />
-          )}
-        </div>
+        <h1 className="font-script text-4xl md:text-5xl lg:text-6xl text-princess-dark drop-shadow-[0_2px_4px_rgba(255,215,0,0.3)] hover:drop-shadow-[0_4px_8px_rgba(255,215,0,0.5)] transition-all">
+          {displayName}
+        </h1>
 
         {/* Subtitle */}
         {subtitle && (

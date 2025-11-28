@@ -127,5 +127,39 @@ export const HeroSection: GlobalConfig = {
         },
       ],
     },
+    {
+      name: "trustIndicators",
+      type: "array",
+      label: "Trust Indicators",
+      admin: {
+        description:
+          "Social proof badges displayed below CTAs (e.g., '⭐ 5-Star Rated', '🎭 Professional Performers')",
+      },
+      fields: [
+        {
+          name: "icon",
+          type: "text",
+          label: "Icon/Emoji",
+          required: true,
+          admin: {
+            description: "Emoji or icon (e.g., ⭐, 🎭, 🎉)",
+          },
+        },
+        {
+          name: "text",
+          type: "text",
+          label: "Text",
+          required: true,
+          admin: {
+            description: "Trust indicator text (e.g., '5-Star Rated', '200+ Parties Hosted')",
+          },
+        },
+      ],
+      defaultValue: [
+        { icon: "⭐", text: "5-Star Rated" },
+        { icon: "🎭", text: "Professional Performers" },
+        { icon: "🎉", text: "200+ Parties Hosted" },
+      ],
+    },
   ],
 };

@@ -3,6 +3,7 @@ import SectionContainer from "@/ui/SectionContainer";
 import IconCard from "@/components/IconCard";
 import SectionTitle from "@/ui/SectionTitle";
 import SectionSubtitle from "@/ui/SectionSubtitle";
+import CTAButton from "@/ui/CTAButton";
 
 interface Service {
   id?: string;
@@ -133,15 +134,28 @@ const ServicesSection: FC<ServicesSectionProps> = ({
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {displayServices.map((service, index) => (
-          <IconCard
-            key={service.id || index}
-            icon={getServiceIcon(service.icon)}
-            title={service.title}
-            description={service.description}
-            link={service.link}
-            variant="glass"
-          />
+          <div key={service.id || index} className={`scroll-reveal scroll-reveal-stagger-${(index % 3) + 1}`}>
+            <IconCard
+              icon={getServiceIcon(service.icon)}
+              title={service.title}
+              description={service.description}
+              link={service.link}
+              variant="glass"
+            />
+          </div>
         ))}
+      </div>
+
+      {/* CTA */}
+      <div className="mt-16 text-center">
+        <CTAButton
+          href="#contact"
+          size="lg"
+          variant="primary"
+          className="bg-princess-gold hover:bg-princess-gold-dark text-white border-none shadow-lg hover:shadow-xl transition-all"
+        >
+          Check Availability
+        </CTAButton>
       </div>
     </SectionContainer>
   );

@@ -21,7 +21,7 @@ const SectionTitle = ({
             id={id}
             aria-describedby={ariaDescribedby}
             className={cn(
-                "text-3xl md:text-4xl lg:text-5xl font-bold text-princess-dark",
+                "text-3xl md:text-4xl lg:text-5xl font-bold text-princess-dark text-shadow-md",
                 className
             )}
         >

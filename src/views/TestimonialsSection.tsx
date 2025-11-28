@@ -3,6 +3,7 @@ import SectionContainer from "@/ui/SectionContainer";
 import Image from "next/image";
 import SectionTitle from "@/ui/SectionTitle";
 import SectionSubtitle from "@/ui/SectionSubtitle";
+import CTAButton from "@/ui/CTAButton";
 
 interface Testimonial {
   id?: string;
@@ -21,6 +22,9 @@ interface TestimonialsSectionProps {
   title?: string;
   subtitle?: string;
   testimonials?: Testimonial[];
+  reviewCount?: number;
+  averageRating?: number;
+  statisticsHeadline?: string;
 }
 
 const defaultTestimonials: Testimonial[] = [
@@ -51,6 +55,9 @@ const ServicesSection: FC<TestimonialsSectionProps> = ({
   title = "What Families Say",
   subtitle = "Testimonials",
   testimonials,
+  reviewCount = 150,
+  averageRating = 5,
+  statisticsHeadline,
 }) => {
   const displayTestimonials = testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials;
 
@@ -59,16 +66,38 @@ const ServicesSection: FC<TestimonialsSectionProps> = ({
       <div className="text-center mb-16">
         <SectionSubtitle>{subtitle}</SectionSubtitle>
         <SectionTitle>{title}</SectionTitle>
+
+        {/* Review Statistics */}
+        <div className="mt-8 flex flex-col items-center gap-4">
+          {/* Star Rating Display */}
+          <div className="flex items-center gap-2">
+            {[...Array(5)].map((_, i) => (
+              <svg
+                key={i}
+                className={`w-8 h-8 ${i < averageRating ? 'text-princess-gold' : 'text-gray-300'}`}
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+
+          {/* Statistics Headline */}
+          <p className="text-xl md:text-2xl font-semibold text-princess-dark">
+            {statisticsHeadline || `⭐ ${reviewCount}+ Five-Star Reviews from Happy Families`}
+          </p>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 scroll-reveal">
         {displayTestimonials.map((testimonial, index) => {
           const avatarUrl = typeof testimonial.avatar === 'object' ? testimonial.avatar?.url : testimonial.avatar;
 
           return (
             <article
               key={testimonial.id || index}
-              className="bg-white/80 backdrop-blur-sm border-2 border-princess-medium/30 rounded-2xl p-8 hover:shadow-2xl hover:border-princess-gold/50 transition-all duration-300 hover:-translate-y-1"
+              className={`bg-white/80 backdrop-blur-sm border-2 border-princess-medium/30 rounded-2xl p-8 hover:shadow-2xl hover:border-princess-gold/50 transition-all duration-300 hover:-translate-y-1 scroll-reveal-stagger-${(index % 3) + 1}`}
             >
               {/* Quote Icon */}
               <svg
@@ -131,6 +160,18 @@ const ServicesSection: FC<TestimonialsSectionProps> = ({
             </article>
           );
         })}
+      </div>
+
+      {/* CTA */}
+      <div className="mt-16 text-center">
+        <CTAButton
+          href="#contact"
+          size="lg"
+          variant="primary"
+          className="bg-princess-gold hover:bg-princess-gold-dark text-white border-none shadow-lg hover:shadow-xl transition-all"
+        >
+          Book Your Party
+        </CTAButton>
       </div>
     </SectionContainer>
   );

@@ -5,6 +5,7 @@ import SectionContainer from "@/ui/SectionContainer";
 import Image from "next/image";
 import SectionTitle from "@/ui/SectionTitle";
 import SectionSubtitle from "@/ui/SectionSubtitle";
+import CTAButton from "@/ui/CTAButton";
 
 interface Character {
     id?: string;
@@ -135,7 +136,7 @@ const CharactersSection: FC<CharactersSectionProps> = ({
                         return (
                             <div
                                 key={`${character.id || character.name}-${idx}`}
-                                className="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(255,182,193,0.5)] transition-all duration-300 hover:-translate-y-2 border-4 border-princess-medium/30 hover:border-princess-gold/60"
+                                className="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(188,155,93,0.6)] transition-all duration-300 hover:-translate-y-2 border-4 border-princess-medium/30 hover:border-princess-gold hover:ring-4 hover:ring-princess-gold/30"
                             >
                                 {/* Character Image */}
                                 <div className="relative h-96 md:h-[500px] overflow-hidden">
@@ -143,12 +144,12 @@ const CharactersSection: FC<CharactersSectionProps> = ({
                                         src={imageUrl || "https://picsum.photos/400/600"}
                                         alt={imageAlt || character.name}
                                         fill
-                                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                        className="object-cover group-hover:scale-115 transition-transform duration-700 ease-out"
                                         sizes="(max-width: 768px) 100vw, 33vw"
                                     />
 
-                                    {/* Gradient Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                    {/* Enhanced Gradient Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/70 transition-all duration-500" />
 
                                     {/* Character Info */}
                                     <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
@@ -199,6 +200,18 @@ const CharactersSection: FC<CharactersSectionProps> = ({
                             aria-label={`Go to character ${index + 1}`}
                         />
                     ))}
+                </div>
+
+                {/* CTA */}
+                <div className="mt-16 text-center">
+                    <CTAButton
+                        href="#contact"
+                        size="lg"
+                        variant="primary"
+                        className="bg-princess-gold hover:bg-princess-gold-dark text-white border-none shadow-lg hover:shadow-xl transition-all"
+                    >
+                        Book Your Character
+                    </CTAButton>
                 </div>
             </div>
         </SectionContainer>

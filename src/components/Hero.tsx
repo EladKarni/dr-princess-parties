@@ -2,6 +2,11 @@ import { FC, ReactNode } from "react";
 import CTAButton from "@/ui/CTAButton";
 import clsx from "clsx";
 
+interface TrustIndicator {
+  icon: string;
+  text: string;
+}
+
 interface HeroProps {
   title: string;
   subtitle?: string;
@@ -14,6 +19,7 @@ interface HeroProps {
     text: string;
     href: string;
   };
+  trustIndicators?: TrustIndicator[];
   backgroundImage?: string;
   backgroundVideo?: string;
   overlay?: boolean;
@@ -28,6 +34,7 @@ const Hero: FC<HeroProps> = ({
   description,
   primaryCTA,
   secondaryCTA,
+  trustIndicators,
   backgroundImage,
   backgroundVideo,
   overlay = true,
@@ -60,10 +67,10 @@ const Hero: FC<HeroProps> = ({
         </video>
       )}
 
-      {/* Overlay */}
+      {/* Enhanced Gradient Overlay */}
       {overlay && (
         <div
-          className="absolute inset-0 bg-black"
+          className="absolute inset-0 gradient-overlay-dark"
           style={{ opacity: overlayOpacity / 100 }}
         />
       )}
@@ -89,7 +96,7 @@ const Hero: FC<HeroProps> = ({
         {(primaryCTA || secondaryCTA) && (
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up animation-delay-400">
             {primaryCTA && (
-              <CTAButton href={primaryCTA.href} size="lg" variant="primary" className="bg-princess-gold hover:bg-princess-gold/90 text-princess-dark border-none shadow-lg hover:shadow-xl transition-all">
+              <CTAButton href={primaryCTA.href} size="lg" variant="primary" className="bg-princess-gold hover:bg-princess-gold-dark text-white border-none shadow-lg hover:shadow-xl transition-all">
                 {primaryCTA.text}
               </CTAButton>
             )}
@@ -98,6 +105,24 @@ const Hero: FC<HeroProps> = ({
                 {secondaryCTA.text}
               </CTAButton>
             )}
+          </div>
+        )}
+
+        {/* Trust Indicators */}
+        {trustIndicators && trustIndicators.length > 0 && (
+          <div className="mt-8 flex flex-wrap justify-center items-center gap-4 md:gap-6 animate-fade-in-up animation-delay-600">
+            {trustIndicators.map((indicator, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-2 text-white/90 text-sm md:text-base"
+              >
+                <span className="text-lg md:text-xl">{indicator.icon}</span>
+                <span className="font-medium">{indicator.text}</span>
+                {index < trustIndicators.length - 1 && (
+                  <span className="hidden md:inline text-white/50 ml-4">|</span>
+                )}
+              </div>
+            ))}
           </div>
         )}
 

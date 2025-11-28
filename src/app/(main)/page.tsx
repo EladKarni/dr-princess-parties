@@ -80,6 +80,16 @@ export default async function Home() {
     console.error("Error fetching testimonials:", error);
   }
 
+  // Fetch testimonials section data
+  let testimonialsSectionData;
+  try {
+    testimonialsSectionData = await payload.findGlobal({
+      slug: 'testimonials-section',
+    });
+  } catch (error) {
+    console.error("Error fetching testimonials section:", error);
+  }
+
   // Fetch contact section data
   let contactData;
   try {
@@ -112,6 +122,7 @@ export default async function Home() {
         description={heroData?.description || "Bringing magical princess character experiences to your special events"}
         primaryCTA={heroData?.primaryCTA}
         secondaryCTA={heroData?.secondaryCTA}
+        trustIndicators={heroData?.trustIndicators}
         backgroundImage={backgroundImageUrl}
         overlay={heroData?.overlay ?? true}
         overlayOpacity={heroData?.overlayOpacity ?? 40}
@@ -136,7 +147,14 @@ export default async function Home() {
       <CharactersSection characters={charactersData} />
 
       {/* Testimonials Section */}
-      <TestimonialsSection testimonials={testimonialsData} />
+      <TestimonialsSection
+        testimonials={testimonialsData}
+        title={testimonialsSectionData?.title}
+        subtitle={testimonialsSectionData?.subtitle}
+        reviewCount={testimonialsSectionData?.reviewCount}
+        averageRating={testimonialsSectionData?.averageRating}
+        statisticsHeadline={testimonialsSectionData?.statisticsHeadline}
+      />
 
       {/* Contact Section */}
       <ContactSection

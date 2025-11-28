@@ -18,6 +18,7 @@ import { Characters } from "./collections/Characters";
 import { HeroSection } from "./globals/HeroSection";
 import { AboutSection } from "./globals/AboutSection";
 import { ProjectsSection } from "./globals/ProjectsSection";
+import { TestimonialsSection } from "./globals/TestimonialsSection";
 // import { TeamSection } from "./globals/TeamSection";
 // import { NeighborhoodSection } from "./globals/NeighborhoodSection";
 import { ContactSection } from "./globals/ContactSection";
@@ -41,6 +42,7 @@ export default buildConfig({
     HeroSection,
     AboutSection,
     ProjectsSection,
+    TestimonialsSection,
     // TeamSection,
     // NeighborhoodSection,
     ContactSection,

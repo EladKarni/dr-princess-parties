@@ -16,7 +16,7 @@
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
@@ -50,6 +50,72 @@
 
   .animation-delay-800 {
     animation-delay: 0.8s;
+  }
+
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+
+  /* Gradient Overlays */
+  .gradient-overlay-gold {
+    background: linear-gradient(135deg, rgba(188, 155, 93, 0.1), rgba(188, 155, 93, 0.3));
+  }
+
+  .gradient-overlay-pink {
+    background: linear-gradient(135deg, rgba(239, 196, 226, 0.2), rgba(222, 143, 201, 0.4));
+  }
+
+  .gradient-overlay-dark {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+  }
+
+  /* Scroll-triggered animations with Intersection Observer support */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered delays for grid items */
+  .scroll-reveal-stagger-1 {
+    transition-delay: 0.1s;
+  }
+
+  .scroll-reveal-stagger-2 {
+    transition-delay: 0.2s;
+  }
+
+  .scroll-reveal-stagger-3 {
+    transition-delay: 0.3s;
+  }
+
+  .scroll-reveal-stagger-4 {
+    transition-delay: 0.4s;
+  }
+
+  .scroll-reveal-stagger-5 {
+    transition-delay: 0.5s;
+  }
+
+  .scroll-reveal-stagger-6 {
+    transition-delay: 0.6s;
+  }
+
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal,
+    .animate-fade-in,
+    .animate-fade-in-up {
+      animation: none;
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 }
 
@@ -200,4 +266,44 @@
 
 .animate-bounce-slow {
   animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* Enhanced Typography */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+}
+
+/* Text shadows for better depth */
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-md {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }

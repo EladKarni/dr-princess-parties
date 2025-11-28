@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Parisienne } from "next/font/google";
 import "../globals.css";
+import NavBar from "@/components/navbar";
+import Footer from "@/components/footer";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,7 +51,10 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="light" className="scroll-smooth">
       <body className={`${inter.className} ${parisienne.variable}`}>
+        <ScrollReveal />
+        <NavBar phoneNumber="(555) 123-4567" />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -36,7 +36,7 @@ const AboutSection: FC<AboutSectionProps> = ({
     <SectionContainer sectionName="about" background="none">
       <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${imagePosition === "left" ? "lg:flex-row-reverse" : ""}`}>
         {/* Content */}
-        <div className={`relative z-10 ${imagePosition === "left" ? "lg:order-2" : ""}`}>
+        <div className={`relative z-10 scroll-reveal ${imagePosition === "left" ? "lg:order-2" : ""}`}>
           <div role="group" aria-labelledby="about-title">
             <SectionSubtitle id="about-subtitle">{subtitle}</SectionSubtitle>
             <SectionTitle id="about-title" ariaDescribedby="about-subtitle" className="mb-6">{title}</SectionTitle>
@@ -70,7 +70,7 @@ const AboutSection: FC<AboutSectionProps> = ({
         </div>
 
         {/* Image */}
-        <div className={imagePosition === "left" ? "lg:order-1" : ""}>
+        <div className={`scroll-reveal scroll-reveal-stagger-2 ${imagePosition === "left" ? "lg:order-1" : ""}`}>
           <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl border-4 border-princess-medium/30">
             <Image
               src={image}

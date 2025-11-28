@@ -12,15 +12,20 @@ const config: Config = {
     extend: {
       colors: {
         'princess-light': '#FFF0F5',    // Lavender Blush
-        'princess-medium': '#FFB6C1',   // Light Pink
-        'princess-gold': '#FFD700',     // Gold
-        'princess-gold-dark': '#B8860B', // Dark Goldenrod (better contrast)
-        'princess-dark': '#2D2D2D',     // Dark text
+        'princess-medium': '#FFB6C1',   // Light Pink (tertiary accent)
+        'princess-gold': '#BC9B5D',     // Sophisticated Gold
+        'princess-gold-dark': '#A08750', // Darker Gold for hover states
+        'princess-pink-light': '#EFC4E2', // Light Pink gradient
+        'princess-pink-medium': '#DE8FC9', // Medium Pink gradient
+        'princess-dark': '#2C2C2C',     // Dark charcoal text
         'princess-white': '#FFFFFF',    // Pure white
       },
       fontFamily: {
         script: ['var(--font-script)', 'Parisienne', 'cursive'],
         sans: ['var(--font-sans)', 'Inter', 'sans-serif'],
+      },
+      scale: {
+        '115': '1.15',
       },
       animation: {
         'sparkle': 'sparkle 3s ease-in-out infinite',
@@ -101,24 +106,24 @@ const config: Config = {
       },
       {
         princess: {
-          primary: "#FFD700",
-          "primary-content": "#2D2D2D",
-          secondary: "#FFB6C1",
-          "secondary-content": "#2D2D2D",
-          accent: "#FFF0F5",
-          "accent-content": "#2D2D2D",
-          neutral: "#F5F5F5",
-          "neutral-content": "#2D2D2D",
-          "base-100": "#FFF0F5",
-          "base-200": "#FFE4E9",
-          "base-300": "#FFD1DC",
-          "base-content": "#2D2D2D",
-          info: "#FFB6C1",
-          "info-content": "#2D2D2D",
+          primary: "#BC9B5D",        // Sophisticated gold
+          "primary-content": "#FFFFFF",
+          secondary: "#DE8FC9",      // Medium pink
+          "secondary-content": "#2C2C2C",
+          accent: "#EFC4E2",         // Light pink
+          "accent-content": "#2C2C2C",
+          neutral: "#2C2C2C",        // Dark charcoal
+          "neutral-content": "#FFFFFF",
+          "base-100": "#FFFFFF",
+          "base-200": "#FFF0F5",     // Light lavender
+          "base-300": "#FFB6C1",     // Original pink as tertiary
+          "base-content": "#2C2C2C",
+          info: "#DE8FC9",
+          "info-content": "#FFFFFF",
           success: "#98D8C8",
-          "success-content": "#2D2D2D",
-          warning: "#FFD700",
-          "warning-content": "#2D2D2D",
+          "success-content": "#2C2C2C",
+          warning: "#BC9B5D",
+          "warning-content": "#FFFFFF",
           error: "#FF6B9D",
           "error-content": "#FFFFFF",
         },

@@ -6,11 +6,6 @@ export async function GET(request: Request): Promise<Response> {
   const url = searchParams.get("url");
   const secret = searchParams.get("secret");
 
-  console.log("Preview route called:");
-  console.log("  Received secret:", secret);
-  console.log("  Expected secret:", process.env.PAYLOAD_SECRET);
-  console.log("  Match:", secret === process.env.PAYLOAD_SECRET);
-
   // Validate the preview secret
   if (secret !== process.env.PAYLOAD_SECRET) {
     return new Response("Invalid token", { status: 401 });

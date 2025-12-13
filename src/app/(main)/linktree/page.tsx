@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { getPayload } from "payload";
 import config from "@payload-config";
 import { draftMode } from "next/headers";
+import { RefreshRouteOnSave } from "@/components/RefreshRouteOnSave";
 import SparklesBackground from "@/components/linktree/SparklesBackground";
 import LinktreeContainer from "@/components/linktree/LinktreeContainer";
 import ProfileHeader from "@/components/linktree/ProfileHeader";
@@ -61,6 +62,7 @@ export default async function LinktreePage({
 
   return (
     <main className="relative min-h-screen overflow-hidden">
+      <RefreshRouteOnSave />
       {/* Background */}
       {(theme?.enableSparkles !== false) && <SparklesBackground />}
       {(theme?.enableSparkles === false) && (

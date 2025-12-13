@@ -13,10 +13,10 @@ const parisienne = Parisienne({
 
 export const metadata: Metadata = {
   title: {
-    default: "Dr. Princess Parties | Magical Character Experiences",
+    default: "Coming Soon | Dr. Princess Parties",
     template: "%s | Dr. Princess Parties",
   },
-  description: "Bringing magical princess character experiences to your special events. Professional performers, enchanting costumes, and unforgettable memories for children and families.",
+  description: "Something magical is on the way! Dr. Princess Parties is preparing an enchanting experience. Stay tuned for the grand reveal of our magical character experiences.",
   keywords: ["princess parties", "character appearances", "birthday parties", "princess entertainment", "kids parties", "character visits", "party entertainment"],
   authors: [{ name: "Dr. Princess Parties" }],
   creator: "Dr. Princess Parties",
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://drprincessparties.com/",
-    title: "Dr. Princess Parties | Magical Character Experiences",
-    description: "Bringing magical princess character experiences to your special events. Professional performers and enchanting costumes.",
+    title: "Coming Soon | Dr. Princess Parties",
+    description: "Something magical is on the way! Dr. Princess Parties is preparing an enchanting experience.",
     siteName: "Dr. Princess Parties",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dr. Princess Parties | Magical Character Experiences",
-    description: "Bringing magical princess character experiences to your special events. Professional performers and enchanting costumes.",
+    title: "Coming Soon | Dr. Princess Parties",
+    description: "Something magical is on the way! Dr. Princess Parties is preparing an enchanting experience.",
   },
 };
 

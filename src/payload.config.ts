@@ -20,6 +20,7 @@ import { ProjectsSection } from "./globals/ProjectsSection";
 // import { TeamSection } from "./globals/TeamSection";
 // import { NeighborhoodSection } from "./globals/NeighborhoodSection";
 import { ContactSection } from "./globals/ContactSection";
+import { ComingSoonSection } from "./globals/ComingSoonSection";
 // import { TeamPage } from "./globals/TeamPage";
 // import { NeighborhoodPage } from "./globals/NeighborhoodPage";
 import { LinktreeProfile } from "./globals/LinktreeProfile";
@@ -37,6 +38,7 @@ export default buildConfig({
   },
   collections: [Users, Media, Projects, Services, Testimonials, Characters],
   globals: [
+    ComingSoonSection,
     HeroSection,
     AboutSection,
     ProjectsSection,
@@ -53,7 +55,7 @@ export default buildConfig({
     outputFile: path.resolve(dirname, "../payload-types.ts"),
   },
   db: mongooseAdapter({
-    url: process.env.DATABASE_URL || "",
+    url: process.env.DATABASE_MONGODB_URI || "",
   }),
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000",
   sharp,

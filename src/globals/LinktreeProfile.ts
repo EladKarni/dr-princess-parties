@@ -128,7 +128,8 @@ export const LinktreeProfile: GlobalConfig = {
             { label: "Soft (Pink Background)", value: "soft" },
           ],
           admin: {
-            description: "Visual style for this button",
+            description:
+              "Visual style for regular buttons (ignored if Featured is checked)",
           },
         },
         {
@@ -142,35 +143,41 @@ export const LinktreeProfile: GlobalConfig = {
           },
         },
         {
-          name: "isFeatured",
-          type: "checkbox",
-          label: "Featured (Large Card)",
-          defaultValue: false,
-          admin: {
-            description:
-              "Display as large card with image instead of pill button",
-          },
+          type: "row",
+          fields: [
+            {
+              name: "isFeatured",
+              type: "checkbox",
+              label: "Featured (Large Card)",
+              defaultValue: false,
+              admin: {
+                description:
+                  "Display as large card with image and description instead of pill button",
+                width: "100%",
+              },
+            },
+          ],
         },
         {
           name: "thumbnail",
           type: "upload",
-          label: "Thumbnail Image",
+          label: "Thumbnail Image (Featured Cards Only)",
           relationTo: "media",
           required: false,
           admin: {
             description:
-              "Optional image for featured cards (recommended: 400x400px)",
+              "⚠️ Only displayed when 'Featured (Large Card)' is checked above (recommended: 400x400px)",
           },
         },
         {
           name: "description",
           type: "text",
-          label: "Description",
+          label: "Description (Featured Cards Only)",
           required: false,
           maxLength: 100,
           admin: {
             description:
-              "Short description for featured cards (max 100 characters)",
+              "⚠️ Only displayed when 'Featured (Large Card)' is checked above (max 100 characters)",
           },
         },
         {

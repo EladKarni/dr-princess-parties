@@ -61,8 +61,8 @@ const FeaturedButton: FC<FeaturedButtonProps> = ({
       rel="noopener noreferrer"
       className={cn(
         "group relative w-full",
-        "flex flex-col md:flex-row",
-        "overflow-hidden rounded-2xl",
+        "flex flex-col",
+        "overflow-hidden rounded-3xl",
         "bg-white/95 backdrop-blur-sm",
         "border-2 border-princess-gold/40",
         "shadow-xl hover:shadow-2xl",
@@ -70,25 +70,26 @@ const FeaturedButton: FC<FeaturedButtonProps> = ({
         "hover:scale-[1.02] hover:border-princess-gold",
         "hover:shadow-princess-gold/30",
         "animate-fade-in-up",
+        "min-h-[280px]",
         delayClass
       )}
     >
       {/* Badge */}
       {badge && (
-        <span className="absolute top-3 right-3 z-10 px-3 py-1 text-xs font-bold bg-princess-gold text-white rounded-full shadow-md animate-bounce-slow">
+        <span className="absolute top-4 left-4 z-10 px-4 py-1.5 text-sm font-bold bg-princess-gold text-white rounded-full shadow-lg animate-bounce-slow">
           {badge}
         </span>
       )}
 
       {/* Image Section */}
       {thumbnailUrl && (
-        <div className="relative w-full md:w-32 h-32 md:h-auto flex-shrink-0">
+        <div className="relative w-full h-48 flex-shrink-0">
           <Image
             src={thumbnailUrl}
             alt={label}
             fill
             className="object-cover"
-            sizes="(max-width: 768px) 100vw, 128px"
+            sizes="100vw"
           />
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-princess-gold/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
@@ -96,16 +97,16 @@ const FeaturedButton: FC<FeaturedButtonProps> = ({
       )}
 
       {/* Content Section */}
-      <div className="flex-1 p-5 flex flex-col justify-center">
-        <div className="flex items-center gap-3 mb-1">
-          <IconComponent className="w-6 h-6 text-princess-gold transition-transform group-hover:scale-110" />
-          <h3 className="font-script text-2xl md:text-3xl text-princess-dark group-hover:text-princess-gold transition-colors">
+      <div className="flex-1 p-6 flex flex-col items-center justify-center text-center">
+        <div className="flex flex-col items-center gap-2 mb-2">
+          <IconComponent className="w-8 h-8 text-princess-gold transition-transform group-hover:scale-110" />
+          <h3 className="font-script text-3xl md:text-4xl text-princess-dark group-hover:text-princess-gold transition-colors">
             {label}
           </h3>
         </div>
 
         {description && (
-          <p className="text-sm md:text-base text-princess-dark/70 leading-relaxed ml-9">
+          <p className="text-base md:text-lg text-princess-dark/70 leading-relaxed max-w-md">
             {description}
           </p>
         )}

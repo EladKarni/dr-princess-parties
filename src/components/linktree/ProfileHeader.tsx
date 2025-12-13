@@ -9,6 +9,7 @@ interface Media {
 }
 
 interface ProfileHeaderProps {
+  heading: string;
   displayName: string;
   avatar?: Media | string | null;
   bio?: string;
@@ -17,6 +18,7 @@ interface ProfileHeaderProps {
 }
 
 const ProfileHeader: FC<ProfileHeaderProps> = ({
+  heading,
   displayName,
   avatar,
   bio,
@@ -58,7 +60,7 @@ const ProfileHeader: FC<ProfileHeaderProps> = ({
       {/* Name */}
       <div className="flex flex-col items-center gap-1">
         <h1 className="font-script text-4xl md:text-5xl lg:text-6xl text-princess-dark drop-shadow-[0_2px_4px_rgba(255,215,0,0.3)] hover:drop-shadow-[0_4px_8px_rgba(255,215,0,0.5)] transition-all">
-          Dr. Princess Parties
+          {heading}
         </h1>
 
         {/* Subtitle */}

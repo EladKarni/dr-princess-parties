@@ -55,7 +55,7 @@ export default async function LinktreePage({
     );
   }
 
-  const { displayName, avatar, bio, subtitle, links, theme } = profileData;
+  const { heading, displayName, avatar, bio, subtitle, links, theme } = profileData;
 
   // Filter enabled links
   const activeLinks = links?.filter((link: any) => link.enabled) || [];
@@ -72,6 +72,7 @@ export default async function LinktreePage({
       {/* Content */}
       <LinktreeContainer>
         <ProfileHeader
+          heading={heading || "Dr. Princess Parties"}
           displayName={displayName}
           avatar={avatar}
           bio={bio}

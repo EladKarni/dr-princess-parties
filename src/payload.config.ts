@@ -24,6 +24,7 @@ import { ComingSoonSection } from "./globals/ComingSoonSection";
 // import { TeamPage } from "./globals/TeamPage";
 // import { NeighborhoodPage } from "./globals/NeighborhoodPage";
 import { LinktreeProfile } from "./globals/LinktreeProfile";
+import { SiteSettings } from "./globals/SiteSettings";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -41,6 +42,7 @@ export default buildConfig({
     Media /* Projects, Services, Testimonials, Characters */,
   ],
   globals: [
+    SiteSettings,
     ComingSoonSection,
     // HeroSection,
     // AboutSection,

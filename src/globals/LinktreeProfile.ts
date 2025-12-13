@@ -26,6 +26,16 @@ export const LinktreeProfile: GlobalConfig = {
   },
   fields: [
     {
+      name: "heading",
+      type: "text",
+      label: "Main Heading",
+      required: true,
+      defaultValue: "Dr. Princess Parties",
+      admin: {
+        description: "The main heading (h1) displayed at the top of the page",
+      },
+    },
+    {
       name: "displayName",
       type: "text",
       label: "Display Name",

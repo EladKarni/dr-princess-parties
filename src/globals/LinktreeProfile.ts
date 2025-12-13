@@ -6,10 +6,12 @@ export const LinktreeProfile: GlobalConfig = {
   admin: {
     description: "Manage Alexis Hester's Linktree profile page",
     livePreview: {
-      url: () => {
+      url: ({ req }) => {
         const baseUrl =
           process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
-        return `${baseUrl}/linktree`;
+        // Get the secret from the server request context
+        const secret = req.payload.config.secret;
+        return `${baseUrl}/api/preview?url=/linktree&secret=${secret}`;
       },
     },
   },

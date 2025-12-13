@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { getPayload } from "payload";
 import config from "@payload-config";
+import { draftMode } from "next/headers";
 import SparklesBackground from "@/components/linktree/SparklesBackground";
 import LinktreeContainer from "@/components/linktree/LinktreeContainer";
 import ProfileHeader from "@/components/linktree/ProfileHeader";
@@ -17,16 +18,18 @@ export const metadata: Metadata = {
   },
 };
 
-export const revalidate = 60; // Revalidate every 60 seconds
+export const revalidate = 0; // Disable cache for draft mode
 
 export default async function LinktreePage() {
   const payload = await getPayload({ config });
+  const { isEnabled: isDraft } = await draftMode();
 
   let profileData;
 
   try {
     profileData = await payload.findGlobal({
       slug: 'linktree-profile',
+      draft: isDraft,
     });
   } catch (error) {
     console.error("Error fetching linktree profile:", error);

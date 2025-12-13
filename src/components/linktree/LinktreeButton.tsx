@@ -45,6 +45,9 @@ const LinktreeButton: FC<LinktreeButtonProps> = ({
   // Cap animation delay at 800ms
   const delayClass = `animation-delay-${Math.min(index * 200, 800)}`;
 
+  // Check if URL is valid
+  const hasValidUrl = url && url.trim().length > 0;
+
   // Define variant styles
   const variantStyles = {
     primary: cn(
@@ -96,21 +99,19 @@ const LinktreeButton: FC<LinktreeButtonProps> = ({
     soft: "text-princess-dark group-hover:text-princess-medium",
   };
 
-  return (
-    <Link
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={cn(
-        "group relative w-full",
-        "flex items-center justify-center gap-3",
-        "px-8 py-4 rounded-full",
-        "transition-all duration-300 ease-out",
-        "animate-fade-in-up",
-        delayClass,
-        variantStyles[variant]
-      )}
-    >
+  const sharedClassName = cn(
+    "group relative w-full",
+    "flex items-center justify-center gap-3",
+    "px-8 py-4 rounded-full",
+    "transition-all duration-300 ease-out",
+    "animate-fade-in-up",
+    delayClass,
+    variantStyles[variant],
+    !hasValidUrl && "opacity-60 cursor-not-allowed"
+  );
+
+  const content = (
+    <>
       {/* Badge */}
       {badge && (
         <span className="absolute -top-2 -right-2 px-3 py-1 text-xs font-bold bg-princess-gold text-white rounded-full shadow-md animate-bounce-slow">
@@ -130,6 +131,25 @@ const LinktreeButton: FC<LinktreeButtonProps> = ({
       <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
       </div>
+    </>
+  );
+
+  if (!hasValidUrl) {
+    return (
+      <div className={sharedClassName}>
+        {content}
+      </div>
+    );
+  }
+
+  return (
+    <Link
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={sharedClassName}
+    >
+      {content}
     </Link>
   );
 };

@@ -54,26 +54,27 @@ const FeaturedButton: FC<FeaturedButtonProps> = ({
   // Cap animation delay at 800ms
   const delayClass = `animation-delay-${Math.min(index * 200, 800)}`;
 
-  return (
-    <Link
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={cn(
-        "group relative w-full",
-        "flex flex-col",
-        "overflow-hidden rounded-3xl",
-        "bg-white/95 backdrop-blur-sm",
-        "border-2 border-princess-gold/40",
-        "shadow-xl hover:shadow-2xl",
-        "transition-all duration-300 ease-out",
-        "hover:scale-[1.02] hover:border-princess-gold",
-        "hover:shadow-princess-gold/30",
-        "animate-fade-in-up",
-        "min-h-[280px]",
-        delayClass
-      )}
-    >
+  // Check if URL is valid
+  const hasValidUrl = url && url.trim().length > 0;
+
+  const sharedClassName = cn(
+    "group relative w-full",
+    "flex flex-col",
+    "overflow-hidden rounded-3xl",
+    "bg-white/95 backdrop-blur-sm",
+    "border-2 border-princess-gold/40",
+    "shadow-xl hover:shadow-2xl",
+    "transition-all duration-300 ease-out",
+    "hover:scale-[1.02] hover:border-princess-gold",
+    "hover:shadow-princess-gold/30",
+    "animate-fade-in-up",
+    "min-h-[280px]",
+    delayClass,
+    !hasValidUrl && "opacity-60 cursor-not-allowed"
+  );
+
+  const content = (
+    <>
       {/* Badge */}
       {badge && (
         <span className="absolute top-4 left-4 z-10 px-4 py-1.5 text-sm font-bold bg-princess-gold text-white rounded-full shadow-lg animate-bounce-slow">
@@ -116,6 +117,25 @@ const FeaturedButton: FC<FeaturedButtonProps> = ({
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-princess-gold/10 to-transparent animate-shimmer" />
       </div>
+    </>
+  );
+
+  if (!hasValidUrl) {
+    return (
+      <div className={sharedClassName}>
+        {content}
+      </div>
+    );
+  }
+
+  return (
+    <Link
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={sharedClassName}
+    >
+      {content}
     </Link>
   );
 };

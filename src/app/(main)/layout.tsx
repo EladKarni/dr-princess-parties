@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Parisienne } from "next/font/google";
 import "../globals.css";
+import "@flaticon/flaticon-uicons/css/all/all.css";
 import { generateSiteMetadata } from "@/util/generateMetadata";
 
 const inter = Inter({ subsets: ["latin"] });

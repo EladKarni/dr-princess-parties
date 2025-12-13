@@ -6,8 +6,14 @@ interface IconProps {
 
 const VenmoIcon: FC<IconProps> = ({ className = "" }) => {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M19.83 4.5c.54.93.83 2.04.83 3.42 0 4.25-3.62 9.69-6.61 13.82H7.5L4.5 3h6.02l1.46 11.29c1.39-2.19 3.22-5.65 3.22-8.31 0-1.05-.16-1.81-.43-2.48L19.83 4.5z"/>
+    <svg
+      className={className}
+      viewBox="0 0 512 512"
+      fill="currentColor"
+      aria-label="Venmo"
+      role="img"
+    >
+      <path d="m381.4 105.3c11 18.1 15.9 36.7 15.9 60.3 0 75.1-64.1 172.7-116.2 241.2h-118.8l-47.6-285 104.1-9.9 25.3 202.8c23.5-38.4 52.6-98.7 52.6-139.7 0-22.5-3.9-37.8-9.9-50.4z" />
     </svg>
   );
 };

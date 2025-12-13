@@ -7,10 +7,14 @@ export const LinktreeProfile: GlobalConfig = {
     description: "Manage Alexis Hester's Linktree profile page",
     livePreview: {
       url: () => {
-        const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000';
+        const baseUrl =
+          process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
         return `${baseUrl}/linktree`;
       },
     },
+  },
+  versions: {
+    drafts: true,
   },
   access: {
     read: () => true,
@@ -33,7 +37,8 @@ export const LinktreeProfile: GlobalConfig = {
       relationTo: "media",
       required: false,
       admin: {
-        description: "Optional profile picture (recommended: square image, 400x400px)",
+        description:
+          "Optional profile picture (recommended: square image, 400x400px)",
       },
     },
     {
@@ -85,13 +90,13 @@ export const LinktreeProfile: GlobalConfig = {
             description: "Full URL including https://",
           },
           validate: (value: unknown) => {
-            if (!value) return 'URL is required';
-            const urlValue = typeof value === 'string' ? value : String(value);
+            if (!value) return "URL is required";
+            const urlValue = typeof value === "string" ? value : String(value);
             try {
               new URL(urlValue);
               return true;
             } catch {
-              return 'Please enter a valid URL (include https://)';
+              return "Please enter a valid URL (include https://)";
             }
           },
         },
@@ -147,7 +152,8 @@ export const LinktreeProfile: GlobalConfig = {
           label: "Featured (Large Card)",
           defaultValue: false,
           admin: {
-            description: "Display as large card with image instead of pill button",
+            description:
+              "Display as large card with image instead of pill button",
           },
         },
         {
@@ -157,8 +163,10 @@ export const LinktreeProfile: GlobalConfig = {
           relationTo: "media",
           required: false,
           admin: {
-            description: "Optional image for featured cards (recommended: 400x400px)",
-            condition: (data: any, siblingData: any) => siblingData?.isFeatured === true,
+            description:
+              "Optional image for featured cards (recommended: 400x400px)",
+            condition: (data: any, siblingData: any) =>
+              siblingData?.isFeatured === true,
           },
         },
         {
@@ -168,8 +176,10 @@ export const LinktreeProfile: GlobalConfig = {
           required: false,
           maxLength: 100,
           admin: {
-            description: "Short description for featured cards (max 100 characters)",
-            condition: (data: any, siblingData: any) => siblingData?.isFeatured === true,
+            description:
+              "Short description for featured cards (max 100 characters)",
+            condition: (data: any, siblingData: any) =>
+              siblingData?.isFeatured === true,
           },
         },
         {

@@ -5,6 +5,16 @@ export const ComingSoonSection: GlobalConfig = {
   label: "Coming Soon Page",
   admin: {
     description: "Manage the Coming Soon page content",
+    livePreview: {
+      url: () => {
+        const baseUrl =
+          process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
+        return `${baseUrl}`;
+      },
+    },
+  },
+  versions: {
+    drafts: true,
   },
   access: {
     read: () => true,

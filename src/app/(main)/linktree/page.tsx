@@ -57,8 +57,17 @@ export default async function LinktreePage({
 
   const { heading, displayName, avatar, bio, subtitle, links, theme } = profileData;
 
-  // Filter enabled links
-  const activeLinks = links?.filter((link: any) => link.enabled) || [];
+  // Filter enabled links and ensure all required fields are filled
+  const activeLinks = links?.filter((link: any) => {
+    // Must be enabled
+    if (!link.enabled) return false;
+
+    // Must have both required fields (label and url)
+    const hasLabel = link.label && link.label.trim().length > 0;
+    const hasUrl = link.url && link.url.trim().length > 0;
+
+    return hasLabel && hasUrl;
+  }) || [];
 
   return (
     <main className="relative min-h-screen overflow-hidden">

@@ -8,18 +8,18 @@ import sharp from "sharp";
 // Import collections
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
-import { Projects } from "./collections/Projects";
-import { Services } from "./collections/Services";
-import { Testimonials } from "./collections/Testimonials";
-import { Characters } from "./collections/Characters";
+// import { Projects } from "./collections/Projects";
+// import { Services } from "./collections/Services";
+// import { Testimonials } from "./collections/Testimonials";
+// import { Characters } from "./collections/Characters";
 
 // Import globals
-import { HeroSection } from "./globals/HeroSection";
-import { AboutSection } from "./globals/AboutSection";
-import { ProjectsSection } from "./globals/ProjectsSection";
+// import { HeroSection } from "./globals/HeroSection";
+// import { AboutSection } from "./globals/AboutSection";
+// import { ProjectsSection } from "./globals/ProjectsSection";
 // import { TeamSection } from "./globals/TeamSection";
 // import { NeighborhoodSection } from "./globals/NeighborhoodSection";
-import { ContactSection } from "./globals/ContactSection";
+// import { ContactSection } from "./globals/ContactSection";
 import { ComingSoonSection } from "./globals/ComingSoonSection";
 // import { TeamPage } from "./globals/TeamPage";
 // import { NeighborhoodPage } from "./globals/NeighborhoodPage";
@@ -36,15 +36,18 @@ export default buildConfig({
     },
     disable: false,
   },
-  collections: [Users, Media, Projects, Services, Testimonials, Characters],
+  collections: [
+    Users,
+    Media /* Projects, Services, Testimonials, Characters */,
+  ],
   globals: [
     ComingSoonSection,
-    HeroSection,
-    AboutSection,
-    ProjectsSection,
+    // HeroSection,
+    // AboutSection,
+    // ProjectsSection,
     // TeamSection,
     // NeighborhoodSection,
-    ContactSection,
+    // ContactSection,
     // TeamPage,
     // NeighborhoodPage,
     LinktreeProfile,

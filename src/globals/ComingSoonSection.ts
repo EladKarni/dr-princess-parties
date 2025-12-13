@@ -26,12 +26,9 @@ export const ComingSoonSection: GlobalConfig = {
   versions: {
     drafts: {
       autosave: {
-        interval: 2000,
+        interval: 375,
       },
     },
-  },
-  access: {
-    read: () => true,
   },
   fields: [
     {

@@ -20,12 +20,9 @@ export const LinktreeProfile: GlobalConfig = {
   versions: {
     drafts: {
       autosave: {
-        interval: 2000,
+        interval: 375,
       },
     },
-  },
-  access: {
-    read: () => true,
   },
   fields: [
     {
@@ -97,16 +94,6 @@ export const LinktreeProfile: GlobalConfig = {
           admin: {
             description: "Full URL including https://",
           },
-          validate: (value: unknown) => {
-            if (!value) return "URL is required";
-            const urlValue = typeof value === "string" ? value : String(value);
-            try {
-              new URL(urlValue);
-              return true;
-            } catch {
-              return "Please enter a valid URL (include https://)";
-            }
-          },
         },
         {
           name: "icon",
@@ -173,8 +160,6 @@ export const LinktreeProfile: GlobalConfig = {
           admin: {
             description:
               "Optional image for featured cards (recommended: 400x400px)",
-            condition: (data: any, siblingData: any) =>
-              siblingData?.isFeatured === true,
           },
         },
         {
@@ -186,8 +171,6 @@ export const LinktreeProfile: GlobalConfig = {
           admin: {
             description:
               "Short description for featured cards (max 100 characters)",
-            condition: (data: any, siblingData: any) =>
-              siblingData?.isFeatured === true,
           },
         },
         {

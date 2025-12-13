@@ -18,16 +18,17 @@ export const metadata: Metadata = {
 
 const serverFunction = async (args: any) => {
   'use server'
-  const { getPayload } = await import('payload')
-  const payload = await getPayload({ config: await config })
 
-  // Handle server function calls from Payload admin
-  if (typeof args === 'object' && args !== null) {
-    // Return empty response for now - Payload will handle internally
-    return {}
+  try {
+    const { serverInit } = await import('@payloadcms/next/utilities')
+    return await serverInit({
+      ...(args || {}),
+      config: await config,
+    })
+  } catch (error) {
+    console.error('Server function error:', error)
+    throw error
   }
-
-  return {}
 }
 
 const Layout = ({ children }: Args) => (

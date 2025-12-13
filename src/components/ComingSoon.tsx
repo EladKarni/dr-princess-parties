@@ -1,9 +1,17 @@
-"use client";
-
 import SparklesBackground from "./linktree/SparklesBackground";
 import { Logo } from "@/ui/icons/logo";
 
-export default function ComingSoon() {
+type ComingSoonProps = {
+    title?: string;
+    subtitle?: string;
+    description?: string;
+};
+
+export default function ComingSoon({
+    title = "Coming Soon",
+    subtitle = "Something Magical is on the Way",
+    description = "We're preparing an enchanting experience just for you. Stay tuned for the grand reveal!"
+}: ComingSoonProps) {
     return (
         <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-princess-light via-white to-princess-medium">
             {/* Sparkles Background */}
@@ -19,18 +27,17 @@ export default function ComingSoon() {
 
                     {/* Main Title */}
                     <h1 className="font-script text-6xl md:text-8xl text-princess-gold drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] animate-fade-in-up animation-delay-200">
-                        <b>Coming Soon</b>
+                        {title}
                     </h1>
 
                     {/* Subtitle */}
                     <p className="text-2xl md:text-3xl text-princess-dark font-medium animate-fade-in-up animation-delay-400">
-                        Something Magical is on the Way
+                        {subtitle}
                     </p>
 
                     {/* Description */}
                     <p className="text-lg md:text-xl text-princess-dark/80 max-w-xl animate-fade-in-up animation-delay-600">
-                        We&apos;re preparing an enchanting experience just for you.
-                        Stay tuned for the grand reveal!
+                        {description}
                     </p>
 
                     {/* Decorative Element */}

@@ -9,12 +9,16 @@ export const ComingSoonSection: GlobalConfig = {
       url: () => {
         const baseUrl =
           process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
-        return `${baseUrl}`;
+        return `${baseUrl}/api/preview?url=/&secret=${process.env.PAYLOAD_SECRET || ""}`;
       },
     },
   },
   versions: {
-    drafts: true,
+    drafts: {
+      autosave: {
+        interval: 1000, // Save draft every 1 second while editing
+      },
+    },
   },
   access: {
     read: () => true,

@@ -6,7 +6,7 @@ export const ComingSoonSection: GlobalConfig = {
   admin: {
     description: "Manage the Coming Soon page content",
     livePreview: {
-      url: "http://localhost:3000/?draft=true",
+      url: `${process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'}/?draft=true`,
       breakpoints: [
         {
           label: "Mobile",

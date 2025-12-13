@@ -6,7 +6,7 @@ export const LinktreeProfile: GlobalConfig = {
   admin: {
     description: "Manage Alexis Hester's Linktree profile page",
     livePreview: {
-      url: "http://localhost:3000/linktree?draft=true",
+      url: `${process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'}/linktree?draft=true`,
       breakpoints: [
         {
           label: "Mobile",

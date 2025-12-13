@@ -2,6 +2,7 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import ComingSoon from "@/components/ComingSoon";
 import { draftMode } from "next/headers";
+import { RefreshRouteOnSave } from "@/components/RefreshRouteOnSave";
 
 export const revalidate = 0; // Disable cache
 export const dynamic = 'force-dynamic'; // Force dynamic rendering
@@ -30,10 +31,13 @@ export default async function HomePage({
     }
 
     return (
-        <ComingSoon
-            title={comingSoonData.title}
-            subtitle={comingSoonData.subtitle}
-            description={comingSoonData.description}
-        />
+        <>
+            <RefreshRouteOnSave />
+            <ComingSoon
+                title={comingSoonData.title}
+                subtitle={comingSoonData.subtitle}
+                description={comingSoonData.description}
+            />
+        </>
     );
 }

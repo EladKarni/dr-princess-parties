@@ -1,20 +1,25 @@
-import { draftMode } from 'next/headers'
-import { redirect } from 'next/navigation'
+import { draftMode } from "next/headers";
+import { redirect } from "next/navigation";
 
 export async function GET(request: Request): Promise<Response> {
-  const { searchParams } = new URL(request.url)
-  const url = searchParams.get('url')
-  const secret = searchParams.get('secret')
+  const { searchParams } = new URL(request.url);
+  const url = searchParams.get("url");
+  const secret = searchParams.get("secret");
+
+  console.log("Preview route called:");
+  console.log("  Received secret:", secret);
+  console.log("  Expected secret:", process.env.PAYLOAD_SECRET);
+  console.log("  Match:", secret === process.env.PAYLOAD_SECRET);
 
   // Validate the preview secret
   if (secret !== process.env.PAYLOAD_SECRET) {
-    return new Response('Invalid token', { status: 401 })
+    return new Response("Invalid token", { status: 401 });
   }
 
   // Enable draft mode
-  const draft = await draftMode()
-  draft.enable()
+  const draft = await draftMode();
+  draft.enable();
 
   // Redirect to the url or home page
-  redirect(url || '/')
+  redirect(url || "/");
 }

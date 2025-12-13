@@ -6,12 +6,11 @@ export const ComingSoonSection: GlobalConfig = {
   admin: {
     description: "Manage the Coming Soon page content",
     livePreview: {
-      url: ({ req }) => {
+      url: () => {
         const baseUrl =
           process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
-        // Get the secret from the server request context
-        const secret = req.payload.config.secret;
-        return `${baseUrl}/api/preview?url=/&secret=${secret}`;
+        const secret = process.env.PAYLOAD_SECRET || "";
+        return `${baseUrl}/api/preview?url=${encodeURIComponent("/")}&secret=${encodeURIComponent(secret)}`;
       },
     },
   },

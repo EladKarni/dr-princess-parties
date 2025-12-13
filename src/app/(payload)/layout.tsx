@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 import config from '@payload-config'
-import { RootLayout } from '@payloadcms/next/layouts'
+import { RootLayout, handleServerFunctions } from '@payloadcms/next/layouts'
 import { importMap } from './admin/importMap.js'
 
 import '@payloadcms/next/css'
@@ -20,8 +20,7 @@ const serverFunction = async (args: any) => {
   'use server'
 
   try {
-    const { serverInit } = await import('@payloadcms/next/utilities')
-    return await serverInit({
+    return await handleServerFunctions({
       ...(args || {}),
       config: await config,
     })

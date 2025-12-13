@@ -1,17 +1,20 @@
 import { getPayload } from "payload";
 import config from "@payload-config";
 import ComingSoon from "@/components/ComingSoon";
+import { draftMode } from "next/headers";
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function HomePage() {
     const payload = await getPayload({ config });
+    const { isEnabled: isDraft } = await draftMode();
 
     let comingSoonData;
 
     try {
         comingSoonData = await payload.findGlobal({
             slug: 'coming-soon-section',
+            draft: isDraft,
         });
     } catch (error) {
         console.error("Error fetching coming soon data:", error);

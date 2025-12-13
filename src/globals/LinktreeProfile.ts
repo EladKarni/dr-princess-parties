@@ -6,16 +6,23 @@ export const LinktreeProfile: GlobalConfig = {
   admin: {
     description: "Manage Alexis Hester's Linktree profile page",
     livePreview: {
-      url: () => {
-        const baseUrl =
-          process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
-        const secret = process.env.PAYLOAD_SECRET || "";
-        return `${baseUrl}/api/preview?url=${encodeURIComponent("/linktree")}&secret=${encodeURIComponent(secret)}`;
-      },
+      url: "http://localhost:3000/linktree?draft=true",
+      breakpoints: [
+        {
+          label: "Mobile",
+          name: "mobile",
+          width: 375,
+          height: 667,
+        },
+      ],
     },
   },
   versions: {
-    drafts: true,
+    drafts: {
+      autosave: {
+        interval: 2000,
+      },
+    },
   },
   access: {
     read: () => true,

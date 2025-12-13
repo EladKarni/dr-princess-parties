@@ -3,11 +3,18 @@ import config from "@payload-config";
 import ComingSoon from "@/components/ComingSoon";
 import { draftMode } from "next/headers";
 
-export const revalidate = 60; // Revalidate every 60 seconds
+export const revalidate = 0; // Disable cache
+export const dynamic = 'force-dynamic'; // Force dynamic rendering
 
-export default async function HomePage() {
+export default async function HomePage({
+    searchParams,
+}: {
+    searchParams: Promise<{ draft?: string }>;
+}) {
     const payload = await getPayload({ config });
-    const { isEnabled: isDraft } = await draftMode();
+    const params = await searchParams;
+    const { isEnabled: isDraftMode } = await draftMode();
+    const isDraft = isDraftMode || params.draft === 'true';
 
     let comingSoonData;
 

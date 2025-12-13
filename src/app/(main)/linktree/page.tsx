@@ -20,9 +20,15 @@ export const metadata: Metadata = {
 
 export const revalidate = 0; // Disable cache for draft mode
 
-export default async function LinktreePage() {
+export default async function LinktreePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ draft?: string }>;
+}) {
   const payload = await getPayload({ config });
-  const { isEnabled: isDraft } = await draftMode();
+  const params = await searchParams;
+  const { isEnabled: isDraftMode } = await draftMode();
+  const isDraft = isDraftMode || params.draft === 'true';
 
   let profileData;
 

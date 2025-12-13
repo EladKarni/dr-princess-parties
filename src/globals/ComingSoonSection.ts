@@ -6,18 +6,27 @@ export const ComingSoonSection: GlobalConfig = {
   admin: {
     description: "Manage the Coming Soon page content",
     livePreview: {
-      url: () => {
-        const baseUrl =
-          process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
-        const secret = process.env.PAYLOAD_SECRET || "";
-        return `${baseUrl}/api/preview?url=${encodeURIComponent("/")}&secret=${encodeURIComponent(secret)}`;
-      },
+      url: "http://localhost:3000/?draft=true",
+      breakpoints: [
+        {
+          label: "Mobile",
+          name: "mobile",
+          width: 375,
+          height: 667,
+        },
+        {
+          label: "Desktop",
+          name: "desktop",
+          width: 1440,
+          height: 900,
+        },
+      ],
     },
   },
   versions: {
     drafts: {
       autosave: {
-        interval: 1000, // Save draft every 1 second while editing
+        interval: 2000,
       },
     },
   },

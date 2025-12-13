@@ -58,5 +58,8 @@ export default buildConfig({
     url: process.env.DATABASE_MONGODB_URI || "",
   }),
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000",
+  routes: {
+    api: "/api",
+  },
   sharp,
 });

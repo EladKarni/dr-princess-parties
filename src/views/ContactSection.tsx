@@ -10,12 +10,26 @@ interface ContactSectionProps {
   title?: string;
   subtitle?: string;
   description?: string;
+  nameLabel?: string;
+  namePlaceholder?: string;
+  emailLabel?: string;
+  emailPlaceholder?: string;
+  messageLabel?: string;
+  messagePlaceholder?: string;
+  submitButtonText?: string;
 }
 
 const ContactSection: FC<ContactSectionProps> = ({
   title = "Get in Touch",
   subtitle = "Contact Us",
   description = "Have a product concept you want to develop? Let's discuss how we can help transform your idea into a functional prototype.",
+  nameLabel = "Name",
+  namePlaceholder = "Your name",
+  emailLabel = "Email",
+  emailPlaceholder = "your@email.com",
+  messageLabel = "Message",
+  messagePlaceholder = "Tell us about your event...",
+  submitButtonText = "Send Message",
 }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -61,7 +75,7 @@ const ContactSection: FC<ContactSectionProps> = ({
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-princess-dark mb-2">
-                  Name <span className="text-error">*</span>
+                  {nameLabel} <span className="text-error">*</span>
                 </label>
                 <input
                   type="text"
@@ -71,13 +85,13 @@ const ContactSection: FC<ContactSectionProps> = ({
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-lg border-2 border-princess-medium/30 bg-white text-princess-dark focus:outline-none focus:ring-2 focus:ring-princess-gold focus:border-princess-gold transition-all duration-200"
-                  placeholder="Your name"
+                  placeholder={namePlaceholder}
                 />
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-sm font-semibold text-princess-dark mb-2">
-                  Email <span className="text-error">*</span>
+                  {emailLabel} <span className="text-error">*</span>
                 </label>
                 <input
                   type="email"
@@ -87,7 +101,7 @@ const ContactSection: FC<ContactSectionProps> = ({
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-lg border-2 border-princess-medium/30 bg-white text-princess-dark focus:outline-none focus:ring-2 focus:ring-princess-gold focus:border-princess-gold transition-all duration-200"
-                  placeholder="your@email.com"
+                  placeholder={emailPlaceholder}
                 />
               </div>
 
@@ -108,7 +122,7 @@ const ContactSection: FC<ContactSectionProps> = ({
 
               <div>
                 <label htmlFor="message" className="block text-sm font-semibold text-princess-dark mb-2">
-                  Message <span className="text-error">*</span>
+                  {messageLabel} <span className="text-error">*</span>
                 </label>
                 <textarea
                   id="message"
@@ -118,7 +132,7 @@ const ContactSection: FC<ContactSectionProps> = ({
                   required
                   rows={5}
                   className="w-full px-4 py-3 rounded-lg border-2 border-princess-medium/30 bg-white text-princess-dark focus:outline-none focus:ring-2 focus:ring-princess-gold focus:border-princess-gold transition-all duration-200 resize-none"
-                  placeholder="Tell us about your event..."
+                  placeholder={messagePlaceholder}
                 />
               </div>
 
@@ -142,7 +156,7 @@ const ContactSection: FC<ContactSectionProps> = ({
                 loading={status === "loading"}
                 disabled={status === "loading"}
               >
-                {status === "loading" ? "Sending..." : "Send Message"}
+                {status === "loading" ? "Sending..." : submitButtonText}
               </CTAButton>
             </form>
           </div>

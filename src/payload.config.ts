@@ -9,18 +9,19 @@ import sharp from "sharp";
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 // import { Projects } from "./collections/Projects";
-// import { Services } from "./collections/Services";
-// import { Testimonials } from "./collections/Testimonials";
-// import { Characters } from "./collections/Characters";
+import { Services } from "./collections/Services";
+import { Testimonials } from "./collections/Testimonials";
+import { Characters } from "./collections/Characters";
 
 // Import globals
-// import { HeroSection } from "./globals/HeroSection";
-// import { AboutSection } from "./globals/AboutSection";
-// import { ProjectsSection } from "./globals/ProjectsSection";
+import { HeroSection } from "./globals/HeroSection";
+import { AboutSection } from "./globals/AboutSection";
+import { ProjectsSection } from "./globals/ProjectsSection";
 // import { TeamSection } from "./globals/TeamSection";
 // import { NeighborhoodSection } from "./globals/NeighborhoodSection";
-// import { ContactSection } from "./globals/ContactSection";
+import { ContactSection } from "./globals/ContactSection";
 import { ComingSoonSection } from "./globals/ComingSoonSection";
+import { TestimonialsSection } from "./globals/TestimonialsSection";
 // import { TeamPage } from "./globals/TeamPage";
 // import { NeighborhoodPage } from "./globals/NeighborhoodPage";
 import { LinktreeProfile } from "./globals/LinktreeProfile";
@@ -39,17 +40,21 @@ export default buildConfig({
   },
   collections: [
     Users,
-    Media /* Projects, Services, Testimonials, Characters */,
+    Media,
+    Services,
+    Characters,
+    Testimonials,
   ],
   globals: [
     SiteSettings,
     ComingSoonSection,
-    // HeroSection,
-    // AboutSection,
-    // ProjectsSection,
+    HeroSection,
+    AboutSection,
+    ProjectsSection,
+    TestimonialsSection,
+    ContactSection,
     // TeamSection,
     // NeighborhoodSection,
-    // ContactSection,
     // TeamPage,
     // NeighborhoodPage,
     LinktreeProfile,

@@ -32,7 +32,7 @@ const SectionContainer = ({
       id={sectionName}
       className={cn(
         "w-full scroll-mt-36",
-        !noPadding && "py-16 md:py-24 lg:py-32",
+        !noPadding && "py-12 md:py-16 lg:py-20",
         backgroundClasses[background],
         sectionClasses
       )}

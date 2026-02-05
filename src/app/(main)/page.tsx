@@ -114,7 +114,7 @@ export default async function HomePage({
     return (
         <>
             <RefreshRouteOnSave />
-            <main className="relative min-h-screen">
+            <main className="relative">
                 {/* Sparkles Background */}
                 <SparklesBackground />
 

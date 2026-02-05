@@ -2,7 +2,6 @@
 
 import { navLinkList } from "@/constants/navLinks";
 import Link from "next/link";
-import ThemeToggle from "./ThemeToggle";
 import CTAButton from "@/ui/CTAButton";
 
 const NavLinks = () => {
@@ -20,7 +19,6 @@ const NavLinks = () => {
                     </li>
                 ))}
             </ul>
-            <ThemeToggle />
             <CTAButton href="/#contact" size="sm">
                 Get in Touch
             </CTAButton>

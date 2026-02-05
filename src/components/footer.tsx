@@ -9,7 +9,7 @@ const Footer = async () => {
   const companyName = settings.companyName || "Dr. Princess Parties";
 
   return (
-    <footer className="bg-base-200 border-t border-base-300">
+    <footer className="bg-base-200 border-t border-base-300 relative z-10">
       <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Company Info */}
@@ -22,7 +22,7 @@ const Footer = async () => {
               <Logo altText={settings.logoAltText} />
             </Link>
             <p className="text-base-content/70 text-sm leading-relaxed">
-              {settings.tagline || "Expert mechanical engineering and rapid prototyping services. We transform product concepts into functional prototypes."}
+              {settings.tagline || "Bringing magic to life with enchanting princess parties and unforgettable character experiences for children of all ages."}
             </p>
           </div>
 
@@ -56,23 +56,23 @@ const Footer = async () => {
             <h3 className="font-semibold text-base-content mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/#solutions" className="text-base-content/70 hover:text-primary text-sm transition-colors duration-200">
-                  CAD Design & Engineering
+                <Link href="/#services" className="text-base-content/70 hover:text-primary text-sm transition-colors duration-200">
+                  Princess Parties
                 </Link>
               </li>
               <li>
-                <Link href="/#solutions" className="text-base-content/70 hover:text-primary text-sm transition-colors duration-200">
-                  Rapid Prototyping
+                <Link href="/#services" className="text-base-content/70 hover:text-primary text-sm transition-colors duration-200">
+                  Character Meet & Greets
                 </Link>
               </li>
               <li>
-                <Link href="/#solutions" className="text-base-content/70 hover:text-primary text-sm transition-colors duration-200">
-                  Design for Manufacturing
+                <Link href="/#services" className="text-base-content/70 hover:text-primary text-sm transition-colors duration-200">
+                  Party Packages
                 </Link>
               </li>
               <li>
-                <Link href="/#solutions" className="text-base-content/70 hover:text-primary text-sm transition-colors duration-200">
-                  Testing & Validation
+                <Link href="/#characters" className="text-base-content/70 hover:text-primary text-sm transition-colors duration-200">
+                  Our Characters
                 </Link>
               </li>
             </ul>
@@ -147,13 +147,13 @@ const Footer = async () => {
                 </a>
               )}
             </div>
-          </div>{companyName}
+          </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="border-t border-base-300 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-base-content/60 text-sm">
-            &copy; {currentYear} YK Innovations. All rights reserved.
+            &copy; {currentYear} {companyName}. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
             <Link href="/privacy" className="text-base-content/60 hover:text-primary transition-colors duration-200">

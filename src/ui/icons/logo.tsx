@@ -6,6 +6,7 @@ type LogoProps = {
   "aria-label"?: string;
   className?: string;
   altText?: string;
+  variant?: "default" | "white";
 };
 
 const Logo = ({
@@ -14,13 +15,15 @@ const Logo = ({
   "aria-label": ariaLabel,
   altText,
   className,
+  variant = "default",
 }: LogoProps) => {
   const finalAltText = altText || "Dr. Princess Parties Logo";
   const finalAriaLabel = ariaLabel || finalAltText;
+  const logoSrc = variant === "white" ? "/dr-princess-logos-white.svg" : "/dr-princess-logos.svg";
 
   return (
     <Image
-      src="/dr-princess-logos.svg"
+      src={logoSrc}
       alt={finalAltText}
       width={width}
       height={height}

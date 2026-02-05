@@ -7,10 +7,10 @@ export async function generateSiteMetadata(): Promise<Metadata> {
 
   return {
     title: {
-      default: `Coming Soon | ${companyName}`,
+      default: companyName,
       template: `%s | ${companyName}`,
     },
-    description: `Something magical is on the way! ${companyName} is preparing an enchanting experience. Stay tuned for the grand reveal of our magical character experiences.`,
+    description: `Bring magic to your celebration with ${companyName}! Professional character appearances, princess parties, and enchanting entertainment for birthdays and special events. Book your magical experience today.`,
     keywords: [
       "princess parties",
       "character appearances",
@@ -31,14 +31,14 @@ export async function generateSiteMetadata(): Promise<Metadata> {
       type: "website",
       locale: "en_US",
       url: "https://drprincessparties.com/",
-      title: `Coming Soon | ${companyName}`,
-      description: `Something magical is on the way! ${companyName} is preparing an enchanting experience.`,
+      title: companyName,
+      description: `Bring magic to your celebration with ${companyName}! Professional character appearances and enchanting entertainment for birthdays and special events.`,
       siteName: companyName,
     },
     twitter: {
       card: "summary_large_image",
-      title: `Coming Soon | ${companyName}`,
-      description: `Something magical is on the way! ${companyName} is preparing an enchanting experience.`,
+      title: companyName,
+      description: `Bring magic to your celebration with ${companyName}! Professional character appearances and enchanting entertainment for birthdays and special events.`,
     },
   };
 }

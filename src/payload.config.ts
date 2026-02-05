@@ -38,6 +38,16 @@ export default buildConfig({
     },
     disable: false,
   },
+  cors: [
+    process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000",
+    "https://www.drprincessparties.com",
+    "https://drprincessparties.com",
+  ].filter(Boolean),
+  csrf: [
+    process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000",
+    "https://www.drprincessparties.com",
+    "https://drprincessparties.com",
+  ].filter(Boolean),
   collections: [
     Users,
     Media,
@@ -71,5 +81,6 @@ export default buildConfig({
   routes: {
     api: "/api",
   },
+  cookiePrefix: "payload",
   sharp,
 });

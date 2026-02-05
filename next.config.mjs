@@ -21,8 +21,17 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**.public.blob.vercel-storage.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'drprincessparties.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.drprincessparties.com',
+      },
     ],
     dangerouslyAllowSVG: true,
+    unoptimized: false,
   },
 }
 

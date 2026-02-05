@@ -40,7 +40,7 @@ const Hero: FC<HeroProps> = ({
   const bgImage = backgroundImage || defaultBackground;
 
   return (
-    <section className={clsx("relative min-h-[600px] md:min-h-[700px] lg:min-h-[800px] flex items-center justify-center overflow-hidden", className)}>
+    <section className={clsx("relative min-h-screen flex items-center justify-center overflow-hidden -mt-[90px] pt-[90px]", className)}>
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"

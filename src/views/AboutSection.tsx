@@ -76,7 +76,7 @@ const AboutSection: FC<AboutSectionProps> = ({
               src={image}
               alt={imageAlt}
               fill
-              className="object-cover"
+              className="object-cover object-[center_20%]"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>

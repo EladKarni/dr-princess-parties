@@ -45,12 +45,25 @@ const ContactSection: FC<ContactSectionProps> = ({
     e.preventDefault();
     setStatus("loading");
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const res = await fetch("/api/contact-submissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error(`Submission failed: ${res.status}`);
+      }
+
       setStatus("success");
       setFormData({ name: "", email: "", phone: "", message: "" });
       setTimeout(() => setStatus("idle"), 3000);
-    }, 1500);
+    } catch (error) {
+      console.error("Contact form submission error:", error);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+    }
   };
 
   const handleChange = (

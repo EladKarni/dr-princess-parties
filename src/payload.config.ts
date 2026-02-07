@@ -13,6 +13,7 @@ import { Media } from "./collections/Media";
 import { Services } from "./collections/Services";
 import { Testimonials } from "./collections/Testimonials";
 import { Characters } from "./collections/Characters";
+import { ContactSubmissions } from "./collections/ContactSubmissions";
 
 // Import globals
 import { HeroSection } from "./globals/HeroSection";
@@ -55,6 +56,7 @@ export default buildConfig({
     Services,
     Characters,
     Testimonials,
+    ContactSubmissions,
   ],
   globals: [
     SiteSettings,

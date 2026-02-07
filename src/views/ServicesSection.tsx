@@ -3,12 +3,14 @@ import SectionContainer from "@/ui/SectionContainer";
 import IconCard from "@/components/IconCard";
 import SectionTitle from "@/ui/SectionTitle";
 import SectionSubtitle from "@/ui/SectionSubtitle";
+import RichTextContent from "@/components/RichTextContent";
+import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 
 interface Service {
   id?: string;
   icon?: string;
   title: string;
-  description: string;
+  description: string | SerializedEditorState;
   link?: {
     text: string;
     href: string;
@@ -137,7 +139,11 @@ const ServicesSection: FC<ServicesSectionProps> = ({
             key={service.id || index}
             icon={getServiceIcon(service.icon)}
             title={service.title}
-            description={service.description}
+            description={
+              typeof service.description === "object"
+                ? <RichTextContent data={service.description} />
+                : service.description
+            }
             link={service.link}
             variant="glass"
           />

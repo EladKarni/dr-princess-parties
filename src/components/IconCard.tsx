@@ -4,7 +4,7 @@ import clsx from "clsx";
 interface IconCardProps {
   icon: ReactNode;
   title: string;
-  description: string;
+  description: ReactNode;
   link?: {
     text: string;
     href: string;
@@ -46,9 +46,9 @@ const IconCard: FC<IconCardProps> = ({
       </h3>
 
       {/* Description */}
-      <p className="text-base-content/70 leading-relaxed mb-4">
+      <div className="text-base-content/70 leading-relaxed mb-4">
         {description}
-      </p>
+      </div>
 
       {/* Link */}
       {link && (

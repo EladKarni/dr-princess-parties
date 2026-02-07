@@ -18,7 +18,7 @@ export const Services: CollectionConfig = {
     },
     {
       name: "description",
-      type: "textarea",
+      type: "richText",
       required: true,
       label: "Service Description",
     },

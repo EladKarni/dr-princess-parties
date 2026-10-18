@@ -1017,6 +1017,11 @@
     prompts "2.4.2"
     uuid "10.0.0"
 
+"@payloadcms/email-resend@3.63.0":
+  version "3.63.0"
+  resolved "https://registry.yarnpkg.com/@payloadcms/email-resend/-/email-resend-3.63.0.tgz#156503323c0f8cfde5827cece823770b22bceca7"
+  integrity sha512-esBSu2gFfEPl33U1j+1EMHnejGePIedti36UEE4g/TkPI5in1UGEmnDsh/Rv2k98/+Wcchs6/M5fMn4WmAO6uQ==
+
 "@payloadcms/graphql@3.63.0":
   version "3.63.0"
   resolved "https://registry.npmjs.org/@payloadcms/graphql/-/graphql-3.63.0.tgz"

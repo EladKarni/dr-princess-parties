@@ -2,6 +2,7 @@ import { buildConfig } from "payload";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
+import { resendAdapter } from "@payloadcms/email-resend";
 import path from "path";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
@@ -86,6 +87,11 @@ export default buildConfig({
   },
   cookiePrefix: "payload",
   sharp,
+  email: resendAdapter({
+    defaultFromAddress: process.env.EMAIL_FROM_ADDRESS || "onboarding@resend.dev",
+    defaultFromName: "Dr. Princess Parties Website",
+    apiKey: process.env.RESEND_API_KEY || "",
+  }),
   plugins: [
     vercelBlobStorage({
       enabled: true,
